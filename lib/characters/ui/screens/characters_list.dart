@@ -22,6 +22,9 @@ class _CharactersList extends State<CharactersList> {
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Rick and Morty app'),
+        ),
         body: Center(
           child: Card(
             child: FutureBuilder(
