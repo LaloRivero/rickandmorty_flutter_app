@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import '../../repository/get_characters_api.dart';
 import '../widgets/character_list_element.dart';
 
-const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
-
 class CharactersList extends StatefulWidget {
   const CharactersList({Key? key}) : super(key: key);
 
@@ -21,7 +19,6 @@ class _CharactersList extends State<CharactersList> {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
-        scaffoldBackgroundColor: darkBlue,
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
