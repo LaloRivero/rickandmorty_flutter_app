@@ -18,6 +18,9 @@ class _CharacterListElement extends State<CharacterListElement> {
 
   @override
   Widget build(BuildContext context) {
+    const textSize = 14.0;
+    const titleText = 18.0;
+
     final characterImage = ClipRRect(
       borderRadius: const BorderRadius.only(
         bottomLeft: Radius.circular(10),
@@ -32,7 +35,7 @@ class _CharacterListElement extends State<CharacterListElement> {
     final characterName = SizedBox(
         width: 250,
         child: Text(widget.character.name,
-            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)));
+            style: const TextStyle(fontSize: titleText, fontWeight: FontWeight.bold)));
 
     dynamic statusIndicator() {
       if (widget.character.status == 'Alive') {
@@ -63,13 +66,18 @@ class _CharacterListElement extends State<CharacterListElement> {
         child: Row(
           children: [
             statusIndicator(),
-            Text("${widget.character.status} - ",
-            style: const TextStyle(
-              fontSize: 18,
-            ),),
-            Text(widget.character.species, style: const TextStyle(
-              fontSize: 18,
-            ),),
+            Text(
+              "${widget.character.status} - ",
+              style: const TextStyle(
+                fontSize: textSize,
+              ),
+            ),
+            Text(
+              widget.character.species,
+              style: const TextStyle(
+                fontSize: textSize,
+              ),
+            ),
           ],
         ));
 
@@ -77,19 +85,42 @@ class _CharacterListElement extends State<CharacterListElement> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          margin: const EdgeInsets.only(
-            top: 20,
-            bottom: 10,
-          ),
+            margin: const EdgeInsets.only(
+              top: 10,
+              bottom: 5,
+            ),
             child: const Text(
-          "Last know Location:",
-          style: TextStyle(
-            fontSize: 18,
-            color: Color.fromARGB(255, 158, 158, 158),
-          ),
-        )),
-        Text(widget.character.location,
-          style: const TextStyle(fontSize: 18),
+              "Last know Location:",
+              style: TextStyle(
+                fontSize: textSize,
+                color: Color.fromARGB(255, 158, 158, 158),
+              ),
+            )),
+        Text(
+          widget.character.location,
+          style: const TextStyle(fontSize: textSize),
+        )
+      ],
+    );
+
+    final firstSeenEpisode = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+            margin: const EdgeInsets.only(
+              top: 10,
+              bottom: 5,
+            ),
+            child: const Text(
+              "First seen in:",
+              style: TextStyle(
+                fontSize: textSize,
+                color: Color.fromARGB(255, 158, 158, 158),
+              ),
+            )),
+        Text(
+          widget.character.firstSeen,
+          style: const TextStyle(fontSize: textSize),
         )
       ],
     );
@@ -113,6 +144,7 @@ class _CharacterListElement extends State<CharacterListElement> {
                   characterName,
                   characterStatus,
                   lastKnowLocation,
+                  firstSeenEpisode,
                 ],
               ),
             )
