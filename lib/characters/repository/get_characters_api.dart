@@ -9,7 +9,7 @@ class GetCharactersAPI {
   // This class has two future methods
   // getCharacters that fetch a list of characters
   // getCharacter that receive an id and fetch and specific character
-  
+
    List <Character> characters = [];
 
    Future getCharacters() async{
@@ -22,14 +22,7 @@ class GetCharactersAPI {
      }
 
      for(var c in response['results']){
-       Character character = Character(
-           id: c['id'].toString(),
-           name: c['name'],
-           status: c['status'],
-           species: c['species'],
-           origin: c['origin'],
-           location: c['location'],
-           image: c['image']);
+       Character character = Character.fromJson(c);
        characters.add(character);
      }
 

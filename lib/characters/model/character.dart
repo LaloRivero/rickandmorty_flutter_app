@@ -1,8 +1,7 @@
 /// This class describes the data that will be use from rickandmortyapi
 
 class Character {
-  final String id, name, status, species, image;
-  final Map origin, location;
+  final String id, name, status, species, image, origin, location;
 
   const Character({
     required this.id,
