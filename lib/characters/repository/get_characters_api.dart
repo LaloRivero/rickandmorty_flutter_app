@@ -10,9 +10,8 @@ class GetCharactersAPI {
   // getCharacters that fetch a list of characters
   // getCharacter that receive an id and fetch and specific character
 
-   List <Character> characters = [];
-
    Future getCharacters() async{
+     List <Character> characters = [];
      final request = await http.get(Uri.parse(apiUrl));
      dynamic response;
      if (request.statusCode == 200) {

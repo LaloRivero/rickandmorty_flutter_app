@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../repository/get_characters_api.dart';
+import '../widgets/character_list_element.dart';
 
 const Color darkBlue = Color.fromARGB(255, 18, 32, 47);
 
@@ -7,10 +8,10 @@ class CharactersList extends StatefulWidget {
   const CharactersList({Key? key}) : super(key: key);
 
   @override
-  _Characters createState()=> _Characters();
+  _CharactersList createState()=> _CharactersList();
 }
 
-class _Characters extends State<CharactersList> {
+class _CharactersList extends State<CharactersList> {
   @override
   void initState() {
     super.initState();
@@ -33,12 +34,7 @@ class _Characters extends State<CharactersList> {
                   return ListView.builder(
                       itemCount: snapshot.data.length,
                       itemBuilder: (context, i) {
-                        return ListTile(
-                          leading: Image(
-                            image: NetworkImage(snapshot.data[i].image),),
-                          title: Text(snapshot.data[i].name),
-                          subtitle: Text(snapshot.data[i].status),
-                        );
+                        return CharacterListElement(character:snapshot.data[i]);
                       });
                 } else if (snapshot.hasError) {
                   return Text(
