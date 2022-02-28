@@ -6,6 +6,10 @@ import 'dart:convert';
 const apiUrl = 'https://rickandmortyapi.com/api/character/';
 
 class GetCharactersAPI {
+  // This class has two future methods
+  // getCharacters that fetch a list of characters
+  // getCharacter that receive an id and fetch and specific character
+  
    List <Character> characters = [];
 
    Future getCharacters() async{
