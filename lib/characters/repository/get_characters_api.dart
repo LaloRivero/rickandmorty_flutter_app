@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:async';
 import 'dart:convert';
 
-const apiUrl = 'https://rickandmortyapi.com/api/character/';
+const apiUrl = 'https://rickandmortyapi.com/api/character/?page=1';
 
 class GetCharactersAPI {
   // This class has two future methods
