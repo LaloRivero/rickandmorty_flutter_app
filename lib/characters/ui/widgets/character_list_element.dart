@@ -30,16 +30,9 @@ class _CharacterListElement extends State<CharacterListElement> {
     );
 
     final characterName = SizedBox(
-      width: 250,
-        child:
-        Text(
-          widget.character.name,
-          style: const TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold
-          )
-        )
-    );
+        width: 250,
+        child: Text(widget.character.name,
+            style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold)));
 
     dynamic statusIndicator() {
       if (widget.character.status == 'Alive') {
@@ -47,8 +40,8 @@ class _CharacterListElement extends State<CharacterListElement> {
           margin: const EdgeInsets.only(
             right: 10,
           ),
-          height: 10,
-          width: 10,
+          height: 12,
+          width: 12,
           decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(20)),
         );
       } else {
@@ -56,8 +49,8 @@ class _CharacterListElement extends State<CharacterListElement> {
           margin: const EdgeInsets.only(
             right: 10,
           ),
-          height: 10,
-          width: 10,
+          height: 12,
+          width: 12,
           decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20)),
         );
       }
@@ -68,12 +61,38 @@ class _CharacterListElement extends State<CharacterListElement> {
           top: 10,
         ),
         child: Row(
+          children: [
+            statusIndicator(),
+            Text("${widget.character.status} - ",
+            style: const TextStyle(
+              fontSize: 18,
+            ),),
+            Text(widget.character.species, style: const TextStyle(
+              fontSize: 18,
+            ),),
+          ],
+        ));
+
+    final lastKnowLocation = Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        statusIndicator(),
-        Text("${widget.character.status} - "),
-        Text(widget.character.species),
+        Container(
+          margin: const EdgeInsets.only(
+            top: 20,
+            bottom: 10,
+          ),
+            child: const Text(
+          "Last know Location:",
+          style: TextStyle(
+            fontSize: 18,
+            color: Color.fromARGB(255, 158, 158, 158),
+          ),
+        )),
+        Text(widget.character.location,
+          style: const TextStyle(fontSize: 18),
+        )
       ],
-    ));
+    );
 
     return Container(
         margin: const EdgeInsets.all(20),
@@ -93,6 +112,7 @@ class _CharacterListElement extends State<CharacterListElement> {
                 children: [
                   characterName,
                   characterStatus,
+                  lastKnowLocation,
                 ],
               ),
             )
