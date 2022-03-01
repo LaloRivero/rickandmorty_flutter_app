@@ -1,6 +1,10 @@
 # rickandmortyapp
 
-A new Flutter project.
+A new Flutter project, that is an example to handle async functions and request to a public API.
+The app is following the UI from the main page of the creator of the API, https://rickandmortyapi.com.
+
+The project is following the BLoC + Clean Architecture.
+
 
 ## Getting Started
 
