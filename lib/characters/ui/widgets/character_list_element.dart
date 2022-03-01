@@ -1,20 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rickandmortyapp/characters/model/character.dart';
 
-class CharacterListElement extends StatefulWidget {
+class CharacterListElement extends StatelessWidget {
   final character;
 
   const CharacterListElement({Key? key, required this.character}) : super(key: key);
-
-  @override
-  _CharacterListElement createState() => _CharacterListElement();
-}
-
-class _CharacterListElement extends State<CharacterListElement> {
-  @override
-  void initState() {
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,18 +17,18 @@ class _CharacterListElement extends State<CharacterListElement> {
         topLeft: Radius.circular(10),
       ),
       child: Image(
-        image: NetworkImage(widget.character.image),
+        image: NetworkImage(character.image),
         height: 180,
       ),
     );
 
     final characterName = SizedBox(
         width: 250,
-        child: Text(widget.character.name,
+        child: Text(character.name,
             style: const TextStyle(fontSize: titleText, fontWeight: FontWeight.bold)));
 
     dynamic statusIndicator() {
-      if (widget.character.status == 'Alive') {
+      if (character.status == 'Alive') {
         return Container(
           margin: const EdgeInsets.only(
             right: 10,
@@ -67,13 +57,13 @@ class _CharacterListElement extends State<CharacterListElement> {
           children: [
             statusIndicator(),
             Text(
-              "${widget.character.status} - ",
+              "${character.status} - ",
               style: const TextStyle(
                 fontSize: textSize,
               ),
             ),
             Text(
-              widget.character.species,
+              character.species,
               style: const TextStyle(
                 fontSize: textSize,
               ),
@@ -97,7 +87,7 @@ class _CharacterListElement extends State<CharacterListElement> {
               ),
             )),
         Text(
-          widget.character.location,
+          character.location,
           style: const TextStyle(fontSize: textSize),
         )
       ],
@@ -119,7 +109,7 @@ class _CharacterListElement extends State<CharacterListElement> {
               ),
             )),
         Text(
-          widget.character.firstSeen,
+          character.firstSeen,
           style: const TextStyle(fontSize: textSize),
         )
       ],

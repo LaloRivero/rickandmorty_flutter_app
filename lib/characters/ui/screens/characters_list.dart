@@ -15,8 +15,11 @@ class _CharactersList extends State<CharactersList> {
     super.initState();
   }
   final getCharactersData = GetCharactersAPI();
+
   @override
   Widget build(BuildContext context) {
+    final characters = getCharactersData.getCharacters();
+
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
       ),
@@ -28,7 +31,7 @@ class _CharactersList extends State<CharactersList> {
         body: Center(
           child: Card(
             child: FutureBuilder(
-              future: getCharactersData.getCharacters(),
+              future: characters,
               builder: (context, AsyncSnapshot snapshot) {
                 if (snapshot.hasData) {
                   return ListView.builder(
