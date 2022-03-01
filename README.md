@@ -5,6 +5,10 @@ The app is following the UI from the main page of the creator of the API, https:
 
 The project is following the BLoC + Clean Architecture.
 
+## Screen
+
+![imagen](https://user-images.githubusercontent.com/39440542/156208849-74e6b003-a852-4d9a-9140-f4424139819c.png)
+
 
 ## Getting Started
 
