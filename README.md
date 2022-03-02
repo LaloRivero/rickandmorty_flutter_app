@@ -7,7 +7,7 @@ The project is following the BLoC + Clean Architecture.
 
 ## Screen
 
-<img src='https://user-images.githubusercontent.com/39440542/156208849-74e6b003-a852-4d9a-9140-f4424139819c.png' width="250">
+<img src='https://user-images.githubusercontent.com/39440542/156298891-634f488a-4c48-42e8-9989-e143820bb19e.png' width="250">
 
 
 ## Getting Started
