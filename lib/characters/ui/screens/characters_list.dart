@@ -7,8 +7,8 @@ class CharactersList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final getCharactersData = GetCharactersAPI();
-    final characters = getCharactersData.getCharacters();
+
+    final characters = GetCharactersAPI().getCharacters();
 
     return MaterialApp(
       theme: ThemeData.dark().copyWith(
