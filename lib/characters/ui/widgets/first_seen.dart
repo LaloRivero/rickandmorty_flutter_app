@@ -18,7 +18,7 @@ class FirstSeen extends StatelessWidget{
               "First seen in:",
               style: TextStyle(
                 fontSize: textSize,
-                color: Color.fromARGB(255, 158, 158, 158),
+                color: const Color.fromARGB(255, 158, 158, 158),
               ),
             )),
         Text(
