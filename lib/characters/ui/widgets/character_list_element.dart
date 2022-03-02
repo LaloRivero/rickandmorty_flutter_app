@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rickandmortyapp/characters/model/character.dart';
+import '../screens/character_details.dart';
+import 'character_status.dart';
+
 
 class CharacterListElement extends StatelessWidget {
   final character;
@@ -26,50 +28,6 @@ class CharacterListElement extends StatelessWidget {
         width: 250,
         child: Text(character.name,
             style: const TextStyle(fontSize: titleText, fontWeight: FontWeight.bold)));
-
-    dynamic statusIndicator() {
-      if (character.status == 'Alive') {
-        return Container(
-          margin: const EdgeInsets.only(
-            right: 10,
-          ),
-          height: 12,
-          width: 12,
-          decoration: BoxDecoration(color: Colors.green, borderRadius: BorderRadius.circular(20)),
-        );
-      } else {
-        return Container(
-          margin: const EdgeInsets.only(
-            right: 10,
-          ),
-          height: 12,
-          width: 12,
-          decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20)),
-        );
-      }
-    }
-
-    final characterStatus = Container(
-        margin: const EdgeInsets.only(
-          top: 10,
-        ),
-        child: Row(
-          children: [
-            statusIndicator(),
-            Text(
-              "${character.status} - ",
-              style: const TextStyle(
-                fontSize: textSize,
-              ),
-            ),
-            Text(
-              character.species,
-              style: const TextStyle(
-                fontSize: textSize,
-              ),
-            ),
-          ],
-        ));
 
     final lastKnowLocation = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -115,30 +73,34 @@ class CharacterListElement extends StatelessWidget {
       ],
     );
 
-    return Container(
-        margin: const EdgeInsets.all(20),
-        decoration: const BoxDecoration(
-          color: Color.fromARGB(255, 60, 62, 68),
-          borderRadius: BorderRadius.all(Radius.circular(10)),
-        ),
-        child: Row(
-          children: [
-            characterImage,
-            Container(
-              margin: const EdgeInsets.only(
-                left: 15,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  characterName,
-                  characterStatus,
-                  lastKnowLocation,
-                  firstSeenEpisode,
-                ],
-              ),
-            )
-          ],
-        ));
+    return InkWell(
+        child: Container(
+            margin: const EdgeInsets.all(20),
+            decoration: const BoxDecoration(
+              color: Color.fromARGB(255, 60, 62, 68),
+              borderRadius: BorderRadius.all(Radius.circular(10)),
+            ),
+            child: Row(
+              children: [
+                characterImage,
+                Container(
+                  margin: const EdgeInsets.only(
+                    left: 15,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      characterName,
+                      CharacterStatus(textSize: textSize, character: character,),
+                      lastKnowLocation,
+                      firstSeenEpisode,
+                    ],
+                  ),
+                )
+              ],
+            )),
+        onTap: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => CharacterDetails(character: character)));
+        });
   }
 }
