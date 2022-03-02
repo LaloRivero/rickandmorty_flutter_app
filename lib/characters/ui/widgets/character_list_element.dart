@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import '../screens/character_details.dart';
 import 'character_status.dart';
+import 'first_seen.dart';
+import 'last_location.dart';
 
 
 class CharacterListElement extends StatelessWidget {
@@ -29,50 +31,6 @@ class CharacterListElement extends StatelessWidget {
         child: Text(character.name,
             style: const TextStyle(fontSize: titleText, fontWeight: FontWeight.bold)));
 
-    final lastKnowLocation = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-            margin: const EdgeInsets.only(
-              top: 10,
-              bottom: 5,
-            ),
-            child: const Text(
-              "Last know Location:",
-              style: TextStyle(
-                fontSize: textSize,
-                color: Color.fromARGB(255, 158, 158, 158),
-              ),
-            )),
-        Text(
-          character.location,
-          style: const TextStyle(fontSize: textSize),
-        )
-      ],
-    );
-
-    final firstSeenEpisode = Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Container(
-            margin: const EdgeInsets.only(
-              top: 10,
-              bottom: 5,
-            ),
-            child: const Text(
-              "First seen in:",
-              style: TextStyle(
-                fontSize: textSize,
-                color: Color.fromARGB(255, 158, 158, 158),
-              ),
-            )),
-        Text(
-          character.firstSeen,
-          style: const TextStyle(fontSize: textSize),
-        )
-      ],
-    );
-
     return InkWell(
         child: Container(
             margin: const EdgeInsets.all(20),
@@ -92,8 +50,9 @@ class CharacterListElement extends StatelessWidget {
                     children: [
                       characterName,
                       CharacterStatus(textSize: textSize, character: character,),
-                      lastKnowLocation,
-                      firstSeenEpisode,
+                      LastLocation(textSize: textSize, character: character,),
+                      FirstSeen(textSize: textSize, character: character,),
+
                     ],
                   ),
                 )
