@@ -2,22 +2,12 @@ import 'package:flutter/material.dart';
 import '../../repository/get_characters_api.dart';
 import '../widgets/character_list_element.dart';
 
-class CharactersList extends StatefulWidget {
+class CharactersList extends StatelessWidget {
   const CharactersList({Key? key}) : super(key: key);
 
   @override
-  _CharactersList createState()=> _CharactersList();
-}
-
-class _CharactersList extends State<CharactersList> {
-  @override
-  void initState() {
-    super.initState();
-  }
-  final getCharactersData = GetCharactersAPI();
-
-  @override
   Widget build(BuildContext context) {
+    final getCharactersData = GetCharactersAPI();
     final characters = getCharactersData.getCharacters();
 
     return MaterialApp(
